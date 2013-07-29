@@ -41,7 +41,6 @@ public class Human extends Player {
      * @return
      */
     private int getInt(Scanner scanner) {
-
         while (!scanner.hasNextInt()) {
             System.out.println("Ошибка! Нужно целое число.");
             scanner.next();

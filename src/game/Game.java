@@ -87,26 +87,26 @@ public class Game {
         int width = field.width;
         int height = field.height;
         //горизонтально
-        for (i = x; i >= 0 && field.field[i][y] == field.field[x][y]; i--);
-        for (j = x; j < width && field.field[j][y] == field.field[x][y]; j++);
+        for (i = y; i >= 0 && field.field[x][i] == field.field[x][y]; i--);
+        for (j = y; j < width && field.field[x][j] == field.field[x][y]; j++);
         if ((j - i - 1) >= lineForWin) {
             return true;
         }
         //вертикально
-        for (i = y; i >= 0 && field.field[x][i] == field.field[x][y]; i--);
-        for (j = y; j < height && field.field[x][j] == field.field[x][y]; j++);
+        for (i = x; i >= 0 && field.field[i][y] == field.field[x][y]; i--);
+        for (j = x; j < height && field.field[j][y] == field.field[x][y]; j++);
         if ((j - i - 1) >= lineForWin) {
             return true;
         }
         //диагональ -45*      
         for (i = 1; x - i >= 0 && y - i >= 0 && field.field[x - i][y - i] == field.field[x][y]; i++);
-        for (j = 1; x + j < width && y + j < height && field.field[x + j][y + j] == field.field[x][y]; j++);
+        for (j = 1; x + j < height && y + j < width && field.field[x + j][y + j] == field.field[x][y]; j++);
         if ((j + i - 1) >= lineForWin) {
             return true;
         }
         //диагональ 45* 
-        for (i = 1; x + i < width && y - i >= 0 && field.field[x + i][y - i] == field.field[x][y]; i++);
-        for (j = 1; x - j >= 0 && y + j < height && field.field[x - j][y + j] == field.field[x][y]; j++);
+        for (i = 1; x + i < height && y - i >= 0 && field.field[x + i][y - i] == field.field[x][y]; i++);
+        for (j = 1; x - j >= 0 && y + j < width && field.field[x - j][y + j] == field.field[x][y]; j++);
         if ((j + i - 1) >= lineForWin) {
             return true;
         }
