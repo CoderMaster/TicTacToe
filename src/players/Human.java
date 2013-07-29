@@ -41,19 +41,10 @@ public class Human extends Player {
      * @return
      */
     private int getInt() {
-        int i = 0;
-        boolean goodToken = false;
-        while (!goodToken) {
-            goodToken = true;
-            try {
-                i = scanner.nextInt();
-            } catch (InputMismatchException e) {
-                goodToken = false;
-                System.out.println("Ошибка ввода! Нужно целое число! " + e);
-                //пропускаем токен
-                scanner.next();
-            }
+        while (!scanner.hasNextInt()) {
+            System.out.println("Ошибка! Нужно целое число.");
+            scanner.next();
         }
-        return i;
+        return scanner.nextInt();
     }
 }
