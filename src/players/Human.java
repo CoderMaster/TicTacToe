@@ -1,7 +1,6 @@
 package players;
 
 import game.Field;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
