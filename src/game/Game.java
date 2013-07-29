@@ -98,7 +98,7 @@ public class Game {
         if ((j - i - 1) >= lineForWin) {
             return true;
         }
-        //диагональ -45* (запоминаем только горизонтальные координаты)        
+        //диагональ -45*      
         for (i = 1; x - i >= 0 && y - i >= 0 && field.field[x - i][y - i] == field.field[x][y]; i++);
         for (j = 1; x + j < width && y + j < height && field.field[x + j][y + j] == field.field[x][y]; j++);
         if ((j + i - 1) >= lineForWin) {
