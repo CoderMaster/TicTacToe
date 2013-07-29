@@ -28,7 +28,7 @@ public class Computer extends Player {
         int steps = 0;
         for (int i = 0; i < localField.length; i++) {
             for (int j = 0; j < localField[i].length; j++) {
-                if (localField[i][j] == ' ') {
+                if (localField[i][j] == Field.EMPTY_CELL) {
                     possibleSteps[steps++] = field.width * i + j;
                 }
             }

@@ -11,8 +11,9 @@ public class Field {
 
     public static final int ERROR_OUT_OF_BOUNDS = -1;
     public static final int ERROR_USED_CELL = -2;
-    public static final int EMPTY_CELL = 1;
+    public static final int NO_ERROR = 1;
     public static final int MIN_FIELD_SIZE = 3;
+    public static final char EMPTY_CELL = ' ';
     final char[][] field;
     public final int width, height;
 
@@ -43,7 +44,7 @@ public class Field {
     private void fieldInit() {
         for (int i = 0; i < field.length; i++) {
             for (int j = 0; j < field[i].length; j++) {
-                field[i][j] = ' ';
+                field[i][j] = EMPTY_CELL;
             }
         }
     }
@@ -66,16 +67,16 @@ public class Field {
      * @param x
      * @param y
      * @return ERROR_OUT_OF_BOUNDS: выход за пределы игрового поля;
-     * ERROR_USED_CELL: клета занята; EMPTY_CELL: свободно
+     * ERROR_USED_CELL: клета занята; NO_ERROR: свободно
      */
     public int validationStep(int x, int y) {
         if (x < 0 || x >= field.length || y < 0 || y >= field[0].length) {
             return ERROR_OUT_OF_BOUNDS;
         }
-        if (field[x][y] != ' ') {
+        if (field[x][y] != EMPTY_CELL) {
             return ERROR_USED_CELL;
         }
-        return EMPTY_CELL;
+        return NO_ERROR;
     }
 
     public char[][] getCopy() {

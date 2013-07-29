@@ -23,7 +23,7 @@ public class Human extends Player {
             int x = getInt() - 1;
             int y = getInt() - 1;
             int valid = field.validationStep(x, y);
-            if (valid == Field.EMPTY_CELL) {
+            if (valid == Field.NO_ERROR) {
                 return field.width * x + y;
             } else if (valid == Field.ERROR_OUT_OF_BOUNDS) {
                 System.out.println("Ошибочные координаты!");

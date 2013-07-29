@@ -55,7 +55,7 @@ public class Game {
             int cell = curPlayer.go(field);
             int x = cell / field.width;
             int y = cell % field.width;
-            if (field.validationStep(x, y) != Field.EMPTY_CELL) {
+            if (field.validationStep(x, y) != Field.NO_ERROR) {
                 throw new RuntimeException("Недопустимый ход!");
             }
             field.field[x][y] = curChar;
