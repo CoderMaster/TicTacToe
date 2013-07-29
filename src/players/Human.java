@@ -8,19 +8,19 @@ import java.util.Scanner;
  */
 public class Human extends Player {
 
-    private final Scanner scanner;
-
-    public Human(String name, Scanner scanner) {
+    public Human(String name) {
         super(name);
-        this.scanner = scanner;
     }
 
     @Override
     public int go(Field field) {
+        //после каждого запроса на ввод координат открываем снова поток ввода,
+        // чтобы не считать случайно старые какие-либо значения.
+        Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.print("Введите координаты клетки: ");
-            int x = getInt() - 1;
-            int y = getInt() - 1;
+            int x = getInt(scanner) - 1;
+            int y = getInt(scanner) - 1;
             int valid = field.validationStep(x, y);
             if (valid == Field.NO_ERROR) {
                 return field.width * x + y;
@@ -37,9 +37,11 @@ public class Human extends Player {
     /**
      * Возвращает целое число из потока scanner
      *
+     * @param scanner
      * @return
      */
-    private int getInt() {
+    private int getInt(Scanner scanner) {
+
         while (!scanner.hasNextInt()) {
             System.out.println("Ошибка! Нужно целое число.");
             scanner.next();

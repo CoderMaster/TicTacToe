@@ -18,17 +18,8 @@ public class Main {
 
     private static Player player1, player2;
     private static int w, x, y;
-    private static Scanner scan;
 
     public static void main(String[] args) {
-        if (args.length != 0 && args.length != 2 && args.length != 4 && args.length != 6) {
-            showHelp();
-            return;
-        }
-        scan = new Scanner(System.in);
-        player1 = new Human("Player", scan);
-        player2 = new Computer("Computer", 'O');
-        x = y = w = Field.MIN_FIELD_SIZE;
         if (parseParam(args)) {
             Game game = new Game(player1, player2, x, y, w);
             game.start();
@@ -51,6 +42,12 @@ public class Main {
      * @return true - параметры без ошибок
      */
     private static boolean parseParam(String[] args) {
+        if (args.length != 0 && args.length != 2 && args.length != 4 && args.length != 6) {
+            return false;
+        }
+        player1 = new Human("Player");
+        player2 = new Computer("Computer", 'O');
+        x = y = w = Field.MIN_FIELD_SIZE;
         int i = 0;
         boolean _p, _s, _w;
         _p = _s = _w = false;
@@ -93,7 +90,7 @@ public class Main {
         switch (string) {
             case "PvsP":
                 player1.setName("Player 1");
-                player2 = new Human("Player 2", scan);
+                player2 = new Human("Player 2");
                 break;
             case "PvsC":
                 //устанавливается по умолчанию
