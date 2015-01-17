@@ -12,7 +12,6 @@ import players.Player;
  * запуска. Описание параметров запуска см. showHelp(). Значения по умолчанию:
  * -p PvsC -s 3x3 -w 3. (Если Field.MIN_FIELD_SIZE=3). Меньшее поле или длину
  * победной линии задавать нельзя.<br>
- * email: supermegacoder@gmail.com
  */
 public class Main {
 
